@@ -12,8 +12,8 @@
 ### Remarques
 
 identifier un message : concatenation nom utilisateur + timestamp
- --------------  -------------- --------------
-|  identifier  || message_type |    content   |||
+ --------------  -------------- -------------- 
+| message_type |    content   |  identifier  ||
  --------------  -------------- --------------
 ## V2 
 
