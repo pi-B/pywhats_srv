@@ -17,9 +17,11 @@ identifier un message : concatenation nom utilisateur + timestamp
 | message_type |    content   |  identifier  ||    token     |
  --------------  -------------- -------------- --------------
 #### Message d'authentification 
- ------------------  --------------------------------------- -------------- 
-| authentification |    {"username" : "", "password", ""}   |  identifier  ||
- ------------------  --------------------------------------- --------------
+ -----------  --------------------------------------- -------------- -------------
+| "connect" |   {"username" : "", "password", ""}   |  identifier  ||  token      |
+ -----------  --------------------------------------- -------------- -------------
+
+
 
 #
 ## V2 

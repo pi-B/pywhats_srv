@@ -1,6 +1,6 @@
 import json
 import logging
-from module.misc.pywhats_exceptions import PyWhatsException  
+from modules.misc.pywhats_exceptions import PyWhatsException  
 
 class User:
 

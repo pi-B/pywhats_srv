@@ -1,6 +1,7 @@
 import socket
 import logging
-import module.client_handler as ch
+import modules.client_handler as ch
+
 
 logging.getLogger().setLevel(logging.DEBUG)
 

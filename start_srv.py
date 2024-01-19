@@ -2,14 +2,14 @@
 import json
 import pathlib
 import conf.config as config
-import module.py_serv as py_serv
+import modules.py_serv as py_serv
 import logging
 
 conf = config.Config()
 
 try:
 
-    with open("./parameters.json","r") as conf_file:
+    with open("./conf/parameters.json","r") as conf_file:
         dict_conf = json.load(conf_file)
         conf.loadConfig(dict_conf)
 

@@ -3,10 +3,10 @@ import logging
 import datetime
 import threading
 import json
-import module.error_handler as error_handler
-import module.message_handler as message_handler
-import module.user as user
-from module.misc.pywhats_exceptions import PyWhatsException  
+import modules.error_handler as error_handler  
+import modules.message_handler as message_handler 
+import modules.user as user 
+from modules.misc.pywhats_exceptions import PyWhatsException  
 
 
 class ClientHandler(threading.Thread):
