@@ -4,17 +4,24 @@
 
 ### Objectifs de cas d'utilisation
 - recevoir des messages
+    - voir le message sur le serveur V
     - acquitter la réception
 
-- Authentifier un utilisateur
+- Authentifier un utilisateur V
 - Authentifier les messages reçus
 
 ### Remarques
 
 identifier un message : concatenation nom utilisateur + timestamp
- --------------  -------------- -------------- 
-| message_type |    content   |  identifier  ||
- --------------  -------------- --------------
+ --------------  -------------- -------------- -------------- 
+| message_type |    content   |  identifier  ||    token     |
+ --------------  -------------- -------------- --------------
+#### Message d'authentification 
+ ------------------  --------------------------------------- -------------- 
+| authentification |    {"username" : "", "password", ""}   |  identifier  ||
+ ------------------  --------------------------------------- --------------
+
+#
 ## V2 
 
 ### Objectifs
