@@ -4,7 +4,7 @@ import client_handler as ch
 
 logging.getLogger().setLevel(logging.DEBUG)
 
-class PyServ:
+class PyWhatsServer:
     
     def __init__(self, port: str):
         self.port = port

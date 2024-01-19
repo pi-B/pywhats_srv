@@ -20,7 +20,7 @@ except ValueError as e:
 
 if __name__== "__main__" :
     print("Hello world")
-    PyWhatSrv = py_serv.PyServ(conf.SERVER_PORT)
+    PyWhatSrv = py_serv.PyWhatsServer(conf.SERVER_PORT)
     PyWhatSrv.start_server()    
 
     

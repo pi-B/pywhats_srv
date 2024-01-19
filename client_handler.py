@@ -64,7 +64,7 @@ class ClientHandler(threading.Thread):
             logging.critical("Packet did not fit the format")
             error_handler.send_error(self.connection,self.addr,"WRONG_FORMAT")
 
-    def createAuthToken(self):
+    def create_auth_token(self):
         if self.user == None:
             logging.critical("User has not been authentified")
             error_handler.send_error(self.connection,self.addr,"NOT_AUTHENTIFIED")
@@ -74,7 +74,7 @@ class ClientHandler(threading.Thread):
         return "token"
 
     # Need to define how tokens are created and then refactore its check
-    def checkAuthToken(self, token: str):
+    def check_auth_token(self, token: str):
         if token == "token":
             return True
         else:
@@ -91,5 +91,5 @@ class ClientHandler(threading.Thread):
             self.user = user.User(username=connection_info["username"], password=connection_info["password"])
 
         else:
-            self.checkAuthToken(message_dict["token"])
+            self.check_auth_token(message_dict["token"])
             # Vérifier token
