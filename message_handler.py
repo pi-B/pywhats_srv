@@ -10,7 +10,7 @@ class MessageHandler:
 
     def __init__(self, message: dict):
         self.message = message
-        self.checkMessage()
+        self.check_message()
         self.process_message()
 
     def check_message(self):

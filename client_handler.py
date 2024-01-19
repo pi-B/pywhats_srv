@@ -49,25 +49,25 @@ class ClientHandler(threading.Thread):
 
         except json.JSONDecodeError:
             logging.critical("Packet was not structured as a dict")
-            error_handler.send_error(self.connection,self.addr,"WRONG_FORMAT")
+            error_handler.sendError(self.connection,self.addr,"WRONG_FORMAT")
             return 0
         
         except KeyError as e:
             logging.critical(f"Did not find expected {e.args[0]}")
-            error_handler.send_error(self.connection,self.addr,"WRONG_FORMAT")
+            error_handler.sendError(self.connection,self.addr,"WRONG_FORMAT")
             return 0
         
         except PyWhatException as e:
-            error_handler.send_error(self.connection,self.addr,e.format)
+            error_handler.sendError(self.connection,self.addr,e.format)
   
         except ValueError as e:
             logging.critical("Packet did not fit the format")
-            error_handler.send_error(self.connection,self.addr,"WRONG_FORMAT")
+            error_handler.sendError(self.connection,self.addr,"WRONG_FORMAT")
 
     def create_auth_token(self):
         if self.user == None:
             logging.critical("User has not been authentified")
-            error_handler.send_error(self.connection,self.addr,"NOT_AUTHENTIFIED")
+            error_handler.sendError(self.connection,self.addr,"NOT_AUTHENTIFIED")
 
         self.token = "token"
 
@@ -79,7 +79,7 @@ class ClientHandler(threading.Thread):
             return True
         else:
             logging.critical("Using an invalid token")
-            error_handler.send_error(self.connection,self.addr,"NOT_AUTHENTIFIED")
+            error_handler.sendError(self.connection,self.addr,"NOT_AUTHENTIFIED")
             return False
 
     def authentication(self,message_dict: dict):

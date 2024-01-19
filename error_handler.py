@@ -9,7 +9,7 @@ ERROR_TEMPLATE = {
     "identifier" : ""
 }
 
-def send_error(connection: socket.socket, addr: int, errorType : str):
+def sendError(connection: socket.socket, addr: int, errorType : str):
     
     errorFormat = dict(ERROR_TEMPLATE)
     logging.debug("sending error")
