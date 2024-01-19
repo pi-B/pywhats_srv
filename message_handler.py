@@ -10,15 +10,15 @@ class MessageHandler:
 
     def __init__(self, message: dict):
         self.message = message
-        self.check_message()
-        self.process_message()
+        self.checkMessage()
+        self.processMessage()
 
-    def check_message(self):
+    def checkMessage(self):
         for key in BASIC_MESSAGE.keys():
             if str(key) not in self.message.keys():
                 raise KeyError
             
-    def process_message(self):
+    def processMessage(self):
         if self.message["packet_type"] == "chat":
             print(f"Received this message : {self.message['content']}")
         

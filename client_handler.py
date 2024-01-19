@@ -24,11 +24,11 @@ class ClientHandler(threading.Thread):
         logging.info(f"New client connected at {datetime.datetime.today().strftime('%Y-%m-%d %H:%M:%Sl')}")
         
         while not self.endConnection :
-            self.read_request()
+            self.readRequest()
 
         logging.debug("fin de la conversation")
 
-    def read_request(self):
+    def readRequest(self):
         
         payload = self.connection.recv(8096)
         message = payload.decode("utf-8")
@@ -64,7 +64,7 @@ class ClientHandler(threading.Thread):
             logging.critical("Packet did not fit the format")
             error_handler.sendError(self.connection,self.addr,"WRONG_FORMAT")
 
-    def create_auth_token(self):
+    def createAuthToken(self):
         if self.user == None:
             logging.critical("User has not been authentified")
             error_handler.sendError(self.connection,self.addr,"NOT_AUTHENTIFIED")
@@ -74,7 +74,7 @@ class ClientHandler(threading.Thread):
         return "token"
 
     # Need to define how tokens are created and then refactore its check
-    def check_auth_token(self, token: str):
+    def checkAuthToken(self, token: str):
         if token == "token":
             return True
         else:
@@ -91,5 +91,5 @@ class ClientHandler(threading.Thread):
             self.user = user.User(username=connection_info["username"], password=connection_info["password"])
 
         else:
-            self.check_auth_token(message_dict["token"])
+            self.checkAuthToken(message_dict["token"])
             # Vérifier token
