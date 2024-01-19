@@ -1,4 +1,4 @@
-import client_handler
+import module.client_handler as client_handler
 import socket
 
 ch = client_handler.ClientHandler(socket.socket(), None)

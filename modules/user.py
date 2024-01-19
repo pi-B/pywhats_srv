@@ -1,6 +1,6 @@
 import json
 import logging
-from pywhats_exceptions import PyWhatException  
+from module.misc.pywhats_exceptions import PyWhatsException  
 
 class User:
 
@@ -12,12 +12,12 @@ class User:
             with open("user_base.json","r") as users:
                 dict_users = json.load(users)
                 if username not in dict_users.keys():
-                    raise PyWhatException("WRONG_USER")
+                    raise PyWhatsException("WRONG_USER")
                     
                 self.userInfos = dict_users[f"{username}"]
                 
         except OSError:
             logging.critical("Could not load users database")
-            raise PyWhatException("SERVER_MALFUNCTION")
+            raise PyWhatsException("SERVER_MALFUNCTION")
 
     

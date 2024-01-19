@@ -4,7 +4,7 @@ class Config:
                 self.SERVER_PORT = None   
                 # self.SRV_TOKEN = None
         
-        def load_config(self,conf: dict):
+        def loadConfig(self,conf: dict):
             
             self.SERVER_PORT = conf.get("server_port", None)
             

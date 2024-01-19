@@ -3,10 +3,10 @@ import logging
 import datetime
 import threading
 import json
-import error_handler
-import message_handler
-import user
-from pywhats_exceptions import PyWhatException  
+import module.error_handler as error_handler
+import module.message_handler as message_handler
+import module.user as user
+from module.misc.pywhats_exceptions import PyWhatsException  
 
 
 class ClientHandler(threading.Thread):
@@ -57,7 +57,7 @@ class ClientHandler(threading.Thread):
             error_handler.sendError(self.connection,self.addr,"WRONG_FORMAT")
             return 0
         
-        except PyWhatException as e:
+        except PyWhatsException as e:
             error_handler.sendError(self.connection,self.addr,e.format)
   
         except ValueError as e:
@@ -85,7 +85,7 @@ class ClientHandler(threading.Thread):
     def authentication(self,message_dict: dict):
         if self.user == None:
             if message_dict["packet_type"] != "authentication":
-                raise PyWhatException("NOT_AUTHENTIFIED")
+                raise PyWhatsException("NOT_AUTHENTIFIED")
             
             connection_info = message_dict["content"]
             self.user = user.User(username=connection_info["username"], password=connection_info["password"])

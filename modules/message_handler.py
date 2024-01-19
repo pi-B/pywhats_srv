@@ -1,4 +1,3 @@
-import error_handler
 
 BASIC_MESSAGE = {
     "packet_type" : "",
